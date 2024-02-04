@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Amatic_SC } from "next/font/google";
+import { Gochi_Hand } from "next/font/google";
 import Providers from "./providers";
 import "./globals.css";
 
-const singleDay = Amatic_SC({
-  weight: ["400", "700"],
+const singleDay = Gochi_Hand({
+  weight: "400",
   subsets: ["latin"]
 });
 
