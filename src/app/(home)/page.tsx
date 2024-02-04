@@ -1,20 +1,13 @@
 import { api } from "../data/api"
 import { Pokemon } from "../data/types/pokemon"
-import Image from 'next/image'
 import { PokemonSpecie } from "../data/types/pokemon-species"
-import { twMerge } from 'tailwind-merge'
 import { PokemonCard } from "../components/pokemon-card"
 
 async function getPokemons(): Promise<{
   pokemons: Pokemon[]
   species: PokemonSpecie[]
 }> {
-  const response = await api('/v2/pokemon', {
-    next: {
-      revalidate: 60 * 60
-    },
-    cache: 'force-cache'
-  })
+  const response = await api('/v2/pokemon')
   const data = await response.json()
 
 
