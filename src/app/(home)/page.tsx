@@ -43,8 +43,8 @@ export default async function Pokedex() {
   const { pokemons, species } = await getPokemons()
 
   return (
-    <div className="flex flex-col items-center justify-center bg-zinc-200 h-full">
-      <div className="flex items-center justify-center flex-wrap gap-8 p-5 max-w-[80%] w-full mx-auto">
+    <div className="py-10 flex flex-col items-center justify-center bg-zinc-200 h-full">
+      <div className="flex items-center justify-center flex-wrap gap-8 p-5 max-w-[75%] w-full mx-auto">
         {pokemons.map((pokemon, pokemonIndex) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} specie={species[pokemonIndex]} />
         ))}
