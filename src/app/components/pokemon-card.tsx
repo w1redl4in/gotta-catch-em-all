@@ -50,8 +50,8 @@ export function PokemonCard({ pokemon, specie }: PokemonCardProps) {
     <div
       className={`relative flex flex-col items-center justify-between size-60 hover:scale-110 hover:cursor-pointer duration-200 bg-slate-100 text-zinc-500 rounded-2xl shadow-lg ${shadowColor}`}
       key={pokemon.id}>
-      <div className={twMerge("shadow-md flex justify-center pt-8 h-[50%] w-full rounded-t-2xl", backgroundColor)}>
-        <span className="text-2xl  text-white">
+      <div className={twMerge("shadow-md text-shadow-md flex justify-center pt-8 h-[50%] w-full rounded-t-2xl", backgroundColor)}>
+        <span className="text-lg text-white">
           {pokemon.name.toLocaleUpperCase()}
         </span>
 

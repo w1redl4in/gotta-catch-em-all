@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Shadows_Into_Light_Two } from "next/font/google";
+import { Shadows_Into_Light_Two, Pixelify_Sans } from "next/font/google";
 import Providers from "./providers";
 import "./globals.css";
 
-const singleDay = Shadows_Into_Light_Two({
+const font1 = Shadows_Into_Light_Two({
   weight: "400",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  variable: "--display-font",
+});
+
+const font2 = Pixelify_Sans({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--body-font",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" className={singleDay.className}>
+    <html lang="pt" className={`${font1.variable} ${font2.className}`}>
       <body>
         <Providers>
           {children}
