@@ -51,7 +51,7 @@ export function PokemonCard({ pokemon, specie }: PokemonCardProps) {
       className={`relative flex flex-col items-center justify-between size-60 hover:scale-110 hover:cursor-pointer duration-200 bg-slate-100 text-zinc-500 rounded-2xl shadow-lg ${shadowColor}`}
       key={pokemon.id}>
       <div className={twMerge("shadow-md text-shadow-md flex justify-center pt-8 h-[50%] w-full rounded-t-2xl", backgroundColor)}>
-        <span className="text-lg text-white">
+        <span className="text-xl text-white">
           {pokemon.name.toLocaleUpperCase()}
         </span>
 
@@ -67,7 +67,7 @@ export function PokemonCard({ pokemon, specie }: PokemonCardProps) {
       <section className="flex flex-wrap gap-2 p-5">
 
         {pokemon.types.map(type => (
-          <span key={type.type.name} className={twMerge('w-[50px] flex justify-center text-white rounded-full px-8', types[type.type.name as keyof typeof types])}>
+          <span key={type.type.name} className={twMerge('w-[50px] flex justify-center text-white rounded-full px-8', types[type.type.name as keyof typeof types], "font-display font-bold")}>
             {type.type.name}
           </span>
         ))}
