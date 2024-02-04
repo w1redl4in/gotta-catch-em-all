@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Gochi_Hand } from "next/font/google";
+import { Shadows_Into_Light_Two } from "next/font/google";
 import Providers from "./providers";
 import "./globals.css";
 
-const singleDay = Gochi_Hand({
+const singleDay = Shadows_Into_Light_Two({
   weight: "400",
   subsets: ["latin"]
 });

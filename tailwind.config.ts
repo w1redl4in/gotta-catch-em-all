@@ -13,7 +13,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "pokemon": "url('/pokemon.gif')",
-        "gengar": "url('/gengar.gif')"
+        "background2": "url('/dragonite.gif')"
       },
     },
   },
