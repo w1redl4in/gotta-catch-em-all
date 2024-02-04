@@ -24,20 +24,10 @@ async function getPokemons(): Promise<{
 
   for await (const pokemon of data.results) {
 
-    const responsePokemonDetails = await api(`/v2/pokemon/${pokemon.name}`, {
-      next: {
-        revalidate: 60 * 60
-      },
-      cache: 'force-cache'
-    })
+    const responsePokemonDetails = await api(`/v2/pokemon/${pokemon.name}`)
     const pokemonDetails = await responsePokemonDetails.json() as Pokemon
 
-    const responsePokemonSpecies = await api(`/v2/pokemon-species/${pokemonDetails.id}`, {
-      next: {
-        revalidate: 60 * 60
-      },
-      cache: 'force-cache'
-    })
+    const responsePokemonSpecies = await api(`/v2/pokemon-species/${pokemonDetails.id}`)
     const pokemonSpecies = await responsePokemonSpecies.json() as PokemonSpecie
 
 
@@ -58,8 +48,6 @@ async function getPokemons(): Promise<{
 
 export default async function Pokedex() {
   const { pokemons, species } = await getPokemons()
-
-  // console.log('pokemons', pokemons[0].sprites.versions["generation-v"]["black-white"].animated.front_default)
 
   return (
     <div className="flex flex-col items-center justify-center bg-zinc-200 h-full">
