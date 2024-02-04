@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Amatic_SC } from "next/font/google";
+import Providers from "./providers";
 import "./globals.css";
 
 const singleDay = Amatic_SC({
@@ -19,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className={singleDay.className}>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
