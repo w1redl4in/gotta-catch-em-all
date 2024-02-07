@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Gamja_Flower, Single_Day } from "next/font/google";
+import { Rubik_Doodle_Shadow, Single_Day } from "next/font/google";
 import Providers from "./providers";
 import "./globals.css";
 
-const font1 = Gamja_Flower({
-  weight: "400",
+const font1 = Rubik_Doodle_Shadow({
+  weight: ["400"],
   subsets: ["latin"],
   variable: "--display-font",
 });
