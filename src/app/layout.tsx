@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Shadows_Into_Light_Two, Pixelify_Sans } from "next/font/google";
+import { Gamja_Flower, Single_Day } from "next/font/google";
 import Providers from "./providers";
 import "./globals.css";
 
-const font1 = Shadows_Into_Light_Two({
+const font1 = Gamja_Flower({
   weight: "400",
   subsets: ["latin"],
   variable: "--display-font",
 });
 
-const font2 = Pixelify_Sans({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
+const font2 = Single_Day({
+  weight: ["400"],
+  // subsets: ["latin"],
   variable: "--body-font",
 });
 
