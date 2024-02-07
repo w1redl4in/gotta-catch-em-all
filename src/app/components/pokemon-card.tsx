@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge"
 import { Pokemon } from "../data/types/pokemon"
 import { PokemonSpecie } from "../data/types/pokemon-species"
 import Image from 'next/image'
+import Link from "next/link"
 
 interface PokemonCardProps {
   pokemon: Pokemon
@@ -47,31 +48,33 @@ export function PokemonCard({ pokemon, specie }: PokemonCardProps) {
 
 
   return (
-    <div
-      className={`relative flex flex-col items-center justify-between size-60 hover:scale-110 hover:cursor-pointer duration-200 bg-slate-100 text-zinc-500 rounded-2xl shadow-lg ${shadowColor}`}
-      key={pokemon.id}>
-      <div className={twMerge("shadow-md text-shadow-md flex justify-center pt-8 h-[50%] w-full rounded-t-2xl", backgroundColor)}>
-        <span className="text-xl text-white">
-          {pokemon.name.toLocaleUpperCase()}
-        </span>
-
-      </div>
-      <Image
-        className="absolute top-[25%] w-32 h-32"
-        width={50}
-        height={50}
-        alt={pokemon.name}
-        src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default}
-      />
-
-      <section className="flex flex-wrap gap-2 p-5">
-
-        {pokemon.types.map(type => (
-          <span key={type.type.name} className={twMerge('w-[50px] flex justify-center text-white rounded-full px-8', types[type.type.name as keyof typeof types], "font-display font-bold")}>
-            {type.type.name}
+    <Link href={`/pokemon/${pokemon.id}`}>
+      <div
+        className={`relative flex flex-col items-center justify-between size-60 hover:scale-110 hover:cursor-pointer duration-200 bg-slate-100 text-zinc-500 rounded-2xl shadow-lg ${shadowColor}`}
+        key={pokemon.id}>
+        <div className={twMerge("shadow-md text-shadow-md flex justify-center pt-8 h-[50%] w-full rounded-t-2xl", backgroundColor)}>
+          <span className="text-xl text-white">
+            {pokemon.name.toLocaleUpperCase()}
           </span>
-        ))}
-      </section>
-    </div>
+
+        </div>
+        <Image
+          className="absolute top-[25%] w-32 h-32"
+          width={50}
+          height={50}
+          alt={pokemon.name}
+          src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default}
+        />
+
+        <section className="flex flex-wrap gap-2 p-5">
+
+          {pokemon.types.map(type => (
+            <span key={type.type.name} className={twMerge('w-[50px] flex justify-center text-white rounded-full px-8', types[type.type.name as keyof typeof types], "font-bold")}>
+              {type.type.name}
+            </span>
+          ))}
+        </section>
+      </div>
+    </Link>
   )
 }
