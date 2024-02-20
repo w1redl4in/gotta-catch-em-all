@@ -2,6 +2,7 @@ import { api } from "../data/api"
 import { Pokemon } from "../data/types/pokemon"
 import { PokemonSpecie } from "../data/types/pokemon-species"
 import { PokemonCard } from "../components/pokemon-card"
+import { getPokemonDetailsByNameOrId, getPokemonSpeciesById } from "../data/pokemon"
 
 async function getPokemons(): Promise<{
   pokemons: Pokemon[]
@@ -17,11 +18,9 @@ async function getPokemons(): Promise<{
 
   for await (const pokemon of data.results) {
 
-    const responsePokemonDetails = await api(`/v2/pokemon/${pokemon.name}`)
-    const pokemonDetails = await responsePokemonDetails.json() as Pokemon
 
-    const responsePokemonSpecies = await api(`/v2/pokemon-species/${pokemonDetails.id}`)
-    const pokemonSpecies = await responsePokemonSpecies.json() as PokemonSpecie
+    const pokemonDetails = await getPokemonDetailsByNameOrId(pokemon.name)
+    const pokemonSpecies = await getPokemonSpeciesById(pokemonDetails.id)
 
 
     pokemons = [

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 import Image from 'next/image'
 import { PokemonSpecie } from "@/app/data/types/pokemon-species"
 import { Progress } from "@/components/ui/progress"
+import { getPokemonDetailsByNameOrId, getPokemonSpeciesById } from "@/app/data/pokemon"
 
 
 interface PokemonProps {
@@ -13,11 +14,8 @@ interface PokemonProps {
 }
 
 async function getPokemon(id: string): Promise<{ pokemon: Pokemon; species: PokemonSpecie }> {
-  const res = await api(`/v2/pokemon/${id}`)
-  const pokemon = await res.json()
-
-  const resDetails = await api(`/v2/pokemon-species/${id}`)
-  const pokemonDetails = await resDetails.json()
+  const pokemon = await getPokemonDetailsByNameOrId(id)
+  const pokemonDetails = await getPokemonSpeciesById(Number(id))
 
   return {
     pokemon,
